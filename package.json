@@ -1,0 +1,25 @@
+{
+  "name": "callapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node backend/index",
+    "server": "nodemon backend/index",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Akaki Shelia",
+  "license": "ISC",
+  "dependencies": {
+    "@koa/router": "^12.0.0",
+    "bootstrap": "^5.2.3",
+    "concurrently": "^7.6.0",
+    "koa": "^2.13.4",
+    "koa-bodyparser": "^4.3.0",
+    "mongodb": "^4.12.1",
+    "nodemon": "^2.0.20",
+    "reactstrap": "^9.1.5",
+    "styled-components": "^5.3.6"
+  }
+}
