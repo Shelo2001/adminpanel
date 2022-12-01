@@ -25,6 +25,11 @@ const useUsers = create(
       console.log(res)
       set({ user: await res.data })
     },
+    createUser: async (data) => {
+      const res = await axios.post('/users', data)
+      console.log(res)
+      set({ users: await res.data })
+    },
   }))
 )
 

@@ -33,8 +33,8 @@ const Landing = () => {
   }
 
   const deleteHandler = (id) => {
-    deleteUser(id)
     window.alert('are you sure you want to delete?')
+    deleteUser(id)
     window.location.reload()
   }
 
@@ -70,7 +70,8 @@ const Landing = () => {
     },
     headCells: {
       style: {
-        backgroundColor: '#CDF0EA',
+        backgroundColor: '#3d89f8',
+        color: 'white',
         paddingLeft: '8px',
         paddingRight: '8px',
         fontSize: '24px',
@@ -191,11 +192,9 @@ const Landing = () => {
             onChange={(e) => setGender(e.target.value)}
             options={[
               {
-                value: 'Male',
                 label: 'Male',
               },
               {
-                value: 'Female',
                 label: 'Female',
               },
             ]}

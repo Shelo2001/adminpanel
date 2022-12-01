@@ -1,23 +1,32 @@
 import React from 'react'
-import { Menu, Typography } from 'antd'
+import { Menu } from 'antd'
 import { Link } from 'react-router-dom'
-
-const { Title } = Typography
+import {
+  UserOutlined,
+  PieChartOutlined,
+  PlusCircleOutlined,
+} from '@ant-design/icons'
 
 const Navbar = () => {
   return (
     <Menu mode='horizontal'>
-      <Menu.Item>
-        <Title level={3}>
-          <Link to='/'>Users</Link>
-        </Title>
-      </Menu.Item>
+      <Link to='/'>
+        <Menu.Item style={{ fontSize: '20px' }} icon={<UserOutlined />}>
+          Users
+        </Menu.Item>
+      </Link>
 
-      <Menu.Item>
-        <Title level={3}>
-          <Link to='/piechart'>Pie Chart</Link>
-        </Title>
-      </Menu.Item>
+      <Link to='/piechart'>
+        <Menu.Item style={{ fontSize: '20px' }} icon={<PieChartOutlined />}>
+          Pie Chart
+        </Menu.Item>
+      </Link>
+
+      <Link to='/createuser'>
+        <Menu.Item style={{ fontSize: '20px' }} icon={<PlusCircleOutlined />}>
+          Create User
+        </Menu.Item>
+      </Link>
     </Menu>
   )
 }
