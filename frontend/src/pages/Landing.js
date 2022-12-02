@@ -27,7 +27,12 @@ const Landing = () => {
   }, [fetch])
   const close = () => setModal(!modal)
 
-  const getUserDetailsHandler = (id) => {
+  const getUserDetailsHandler = ({ id }) => {
+    setModal(true)
+    findById(id)
+  }
+
+  const getUserDetailsWithButton = (id) => {
     setModal(true)
     findById(id)
   }
@@ -49,7 +54,9 @@ const Landing = () => {
     }
   }, [user])
 
-  const updateUserHandler = () => {
+  const updateUserHandler = (id) => {
+    console.log(id)
+    findById(id)
     updateById(user._id, {
       name,
       email,
@@ -123,7 +130,7 @@ const Landing = () => {
     },
     {
       selector: (row) => (
-        <Button type='primary' onClick={() => getUserDetailsHandler(row.id)}>
+        <Button type='primary' onClick={() => getUserDetailsWithButton(row.id)}>
           UPDATE
         </Button>
       ),
@@ -150,7 +157,12 @@ const Landing = () => {
 
   return (
     <div style={{ marginTop: '40px' }}>
-      <DataTable columns={columns} data={data} customStyles={customStyles} />
+      <DataTable
+        columns={columns}
+        data={data}
+        onRowDoubleClicked={getUserDetailsHandler}
+        customStyles={customStyles}
+      />
       <Modal isOpen={modal}>
         <ModalHeader>Update User</ModalHeader>
         <ModalBody>

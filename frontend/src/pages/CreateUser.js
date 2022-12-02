@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Input, Select, Row, Col } from 'antd'
+import { Button, Input, Select, Row, Col, Typography } from 'antd'
 import { PlusCircleOutlined } from '@ant-design/icons'
 import useUsers from '../services/users'
 import { useNavigate } from 'react-router'
@@ -22,7 +22,7 @@ const CreateUser = () => {
     createUser({ name, email, phone, address: { city, street }, gender })
     navigate('/')
   }
-
+  console.log(gender)
   return (
     <div>
       <Row>
@@ -62,11 +62,11 @@ const CreateUser = () => {
             style={{ marginTop: '10px', width: '100%' }}
             placeholder='Select a gender'
             onChange={(e) => setGender(e.target.value)}
-            options={genders.map((g) => ({
-              label: g,
-              value: g,
-            }))}
-          />
+          >
+            {genders.map((g) => (
+              <Select.Option value={g}>{g}</Select.Option>
+            ))}
+          </Select>
 
           <Button
             type='primary'
